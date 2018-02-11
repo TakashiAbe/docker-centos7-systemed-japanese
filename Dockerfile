@@ -17,7 +17,7 @@ ENV LANG=ja_JP.utf8
 RUN rm -f /etc/localtime
 RUN ln -fs /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
-RUN yum -y install git cronie supervisor chrony
+RUN yum -y install git cronie chrony
 
 RUN echo $'\n\
 server ntp.nict.jp iburst\n\
@@ -26,7 +26,7 @@ server ntp.nict.jp iburst\n\
 stratumweight 0\n\
 ' > /etc/chrony.conf
 
-RUN systemctl enable crond && systemctl enable supervisord && systemctl enable chronyd; echo "";
+RUN systemctl enable crond && systemctl enable chronyd
 
 RUN yum clean all
 
