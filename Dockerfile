@@ -26,7 +26,7 @@ server ntp.nict.jp iburst\n\
 stratumweight 0\n\
 ' > /etc/chrony.conf
 
-RUN systemctl enable crond && systemctl enable supervisord && systemctl enable chronyd
+RUN systemctl enable crond && systemctl enable supervisord && systemctl enable chronyd; echo "";
 
 RUN yum clean all
 
