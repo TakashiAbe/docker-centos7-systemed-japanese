@@ -19,11 +19,11 @@ RUN ln -fs /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
 RUN yum -y install git cronie supervisor chrony
 
-RUN echo $'
-server ntp.nict.jp iburst
-
-# Ignore stratum in source selection.
-stratumweight 0
+RUN echo $'\n\
+server ntp.nict.jp iburst\n\
+\n\
+# Ignore stratum in source selection.\n\
+stratumweight 0\n\
 ' > /etc/chrony.conf
 
 RUN systemctl enable crond supervisord chronyd
